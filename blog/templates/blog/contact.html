@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>Contact Me</h2>
+<form method="post" class="contact-form">
+  {% csrf_token %}
+
+  <label for="id_name">Name:</label>
+  <input type="text" name="name" id="id_name" required>
+
+  <label for="id_email">Email:</label>
+  <input type="email" name="email" id="id_email" required>
+
+  <label for="id_subject">Subject:</label>
+  <input type="text" name="subject" id="id_subject" required>
+
+  <label for="id_message">Message:</label>
+  <textarea name="message" id="id_message" rows="5" required></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
+{% endblock %}

@@ -1,0 +1,137 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+  <div class="header-container">
+    <div class="logo-title">
+      <img src="{% static 'blog/images/Dev_logo.png' %}" alt="Logo" style="height: 80px;">
+      <span class="site-title">Armughan.Dev</span>
+    </div>
+    <nav>
+  <ul class="main-nav">
+  <li><a href="#about">About</a></li>
+  <li><a href="#skills">Skills</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+    <form class="search-form">
+      <input type="text" placeholder="Search...">
+    </form>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1 class="hero-title">Python Developer | Frontend Explorer</h1>
+      <h2>Armughan Hassan Khan</h2>
+      <p class="hero-description">Passionate about crafting seamless web experiences. Exploring the intersection of design and development, one project at a time.</p>
+      <a href="{% static 'blog/Resume/Armughan_Resume.pdf' %}" class="resume-btn" download>Download Resume</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://i.postimg.cc/vZ7pBSYP/Intro-img.jpg" alt="My Photo">
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="about" id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>I'm Armughan, a passionate Full Stack Developer with strong Python and Django skills. I enjoy building clean, functional web applications that solve real-world problems.</p>
+    <p>With a background in sales and creative design, I bring a unique mix of communication and tech to everything I build. I'm currently focused on mastering front-end frameworks and deploying full-stack apps.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="skills-section" id="skills">
+  <h2>My Skills</h2>
+  <div class="skills-container">
+    <div class="skill-badge">Django</div>
+    <div class="skill-badge">HTML</div>
+    <div class="skill-badge">CSS</div>
+    <div class="skill-badge">WordPress</div>
+    <div class="skill-badge">Python</div>
+  </div>
+</section>
+
+
+<hr class="section-divider" id="projects">
+
+<section class="projects-section">
+  <h2>Projects</h2>
+  <div class="projects-container">
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>A personal website built using Django and responsive design. Showcases my skills, resume, and contact details.</p>
+    </div>
+    <div class="project-card">
+      <h3>Weather App</h3>
+      <p>Simple weather app using OpenWeather API and JavaScript. Clean UI and real-time updates.</p>
+    </div>
+    <div class="project-card">
+      <h3>Blog Platform</h3>
+      <p>Fully functional blog system with Django backend and custom admin panel for posting/editing articles.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="contact" id="contact">
+  <h2>Contact Me</h2>
+  <form action="#" method="post" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <div style="height: auto;"></div>
+
+    <footer class="site-footer">
+        <div class="footer-row">
+            <div class="footer-left">
+      <p>Email: <a href="mailto:khanarmughan71@gmail.com">khanarmughan71@gmail.com</a></p>
+    </div>
+
+    <div class="footer-center">
+  <div class="social-links">
+    <a href="https://wa.me/923108072660" target="blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://www.instagram.com/khan_armughan22/" target="blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/armughan-hassan-khan-075801321/" target="blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+     <p>© 2025 Armughan.Dev</p>
+  </div>
+
+  <div class="footer-right">
+      <p>📍 Karachi, Pakistan</p>
+    </div>
+        </div>
+
+</footer>
+</body>
+</html>
