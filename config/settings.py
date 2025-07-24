@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-f#(80me3d=6@p7dg66s(@oc&470j8lbgzv+9wk=tbq5z2-_#6m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['armughankhan.pythonanywhere.com']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'blog',
 ]
 
@@ -126,6 +126,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "blog/static",
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 import os
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "blog/static")]
