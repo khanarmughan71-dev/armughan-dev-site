@@ -207,7 +207,7 @@ html {
   color: white;
   border-top: 0px solid rgba(255, 255, 255, 0.1);
   border-bottom: 0px solid rgba(255, 255, 255, 0.1);
-  height: auto;
+  height: 320px;
 }
 
 .skills-section h1 {
@@ -416,6 +416,7 @@ footer {
 
 .footer-left {
     text-align: left;
+    display: flex;
 }
 
 .footer-center {
@@ -429,6 +430,13 @@ footer {
 .footer-left a {
     color: #ccc;
     text-decoration: none;
+    padding-top: 2px;
+}
+
+.footer-left h3 {
+    color: #000;
+    font-weight: bold;
+    padding-right: 4px;
 }
 
 .footer-left a:hover {
@@ -482,6 +490,17 @@ footer {
 
 /* Mobile screens (≤ 768px) */
 @media screen and (max-width: 768px) {
+
+  .main-nav {
+    text-align: center;
+  }
+
+
+  .main-nav li a {
+    font-size: 1.1rem;
+    display: flex;
+  }
+
   /* Hero Section */
   .hero-content {
     padding: 2rem 1rem;
