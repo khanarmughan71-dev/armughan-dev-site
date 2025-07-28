@@ -140,7 +140,7 @@ html {
 
 
 .hero-image img {
-  width: 300px;
+  width: 320px;
   border-radius: 10px 40px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
@@ -491,16 +491,17 @@ footer {
 /* Mobile screens (≤ 768px) */
 @media screen and (max-width: 768px) {
 
-  .main-nav {
-    text-align: center;
-  }
-
-
-  .main-nav li a {
-    font-size: 1.1rem;
+   nav ul {
     display: flex;
+    justify-content: center; /* center the items */
+    gap: 5px;               /* space between items */
+   }
+
+   nav ul li a {
+    font-size: 0.75rem;      /* make text smaller */
   }
 
+  
   /* Hero Section */
   .hero-content {
     padding: 2rem 1rem;
