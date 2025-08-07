@@ -48,7 +48,7 @@ header {
 
 .logo-title img {
     height: 40px;
-    margin-right: 10px;
+    margin-right: 5px;
     border-radius: 5px;
 }
 
@@ -56,10 +56,13 @@ header {
     font-size: 30px;
     font-weight: bold;
     font-family: 'Segoe UI', 'sans-serif';
+    padding-bottom: 10px;
 }
 
 .first {
-    color: #009fff;
+    background: linear-gradient(to right, #00c9ff, #92fe9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .second {
@@ -107,6 +110,10 @@ html {
 .hero {
   padding: 80px 20px;
   background: transparent;
+  min-height: 500px;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .hero-content {
@@ -207,7 +214,10 @@ html {
   color: white;
   border-top: 0px solid rgba(255, 255, 255, 0.1);
   border-bottom: 0px solid rgba(255, 255, 255, 0.1);
+  min-height: 380px;
   height: auto;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .skills-section h1 {
@@ -268,6 +278,10 @@ html {
   padding: 60px 20px;
   background-color: transparent;
   text-align: center;
+  min-height: 450px;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .projects-section h2 {
@@ -366,6 +380,7 @@ html {
 
 .contact-form button:hover {
     transform: scale(1.05);
+    font-weight: bold;
 }
 
 .success-message {
@@ -449,14 +464,18 @@ footer {
 
 .site-footer .social-links a {
     color: #fff;
-    margin: 0 10px;
-    font-size: 25px;
+    margin: 0 8px;
+    font-size: 30px;
     transition: color 0.3s ease;
     text-decoration: none;
 }
 
 .site-footer .social-links a:hover {
     color: #00ffcc;
+}
+
+.copyright p {
+    padding-top: 15px;
 }
 
 
@@ -491,6 +510,15 @@ footer {
 /* Mobile screens (≤ 768px) */
 @media screen and (max-width: 768px) {
 
+   .main-nav {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+   }
+
+
    nav ul {
     display: flex;
     justify-content: center; /* center the items */
@@ -498,7 +526,7 @@ footer {
    }
 
    nav ul li a {
-    font-size: 0.75rem;      /* make text smaller */
+    font-size: 0.60rem;      /* make text smaller */
   }
 
   
