@@ -100,13 +100,13 @@ header {
     left: 0;
     width: 0%;
     height: 2px;
-    background-color: #00ffcc;
+    background-color: #009fff;
     transition: width 0.3s ease; /* slow growth */
 }
 
 /* Hover effect */
 .main-nav li a:hover {
-    color: #00ffcc;
+    color: #009fff;
 }
 
 .main-nav li a:hover::after {
@@ -485,7 +485,7 @@ footer {
 }
 
 .footer-left a:hover {
-    color: #00ffcc;
+    color: #009fff;
 }
 
 .site-footer .social-links {
@@ -501,7 +501,7 @@ footer {
 }
 
 .site-footer .social-links a:hover {
-    color: #00ffcc;
+    color: #009fff;
 }
 
 .footer-line {
@@ -561,38 +561,50 @@ footer {
     padding: 10px 0;
   }
 
-  .footer-left {
+  /* Nav: keep single line for tablets */
+  .main-nav {
+    display: flex;
     justify-content: center;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li a {
+    font-size: 0.85rem; /* slightly smaller */
   }
 }
 
 /* Mobile screens (≤ 768px) */
 @media screen and (max-width: 768px) {
 
-   .main-nav {
+  /* Nav: adjust font size and spacing to stay in single line */
+  .main-nav {
     display: flex;
-    gap: 12px;
+    justify-content: center;
+    gap: 6px;         /* smaller gap between items */
     list-style: none;
     padding: 0;
     margin: 0;
-   }
-
-
-   nav ul {
-    display: flex;
-    justify-content: center; /* center the items */
-    gap: 4px;               /* space between items */
-   }
-
-   nav ul li a {
-    font-size: 0.60rem;      /* make text smaller */
   }
 
-  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 6px;         /* minimal spacing */
+  }
+
+  nav ul li a {
+    font-size: 0.55rem;   /* reduce font to fit small screens */
+    white-space: nowrap;   /* prevent breaking */
+    padding: 4px 6px;     /* reduce padding if needed */
+  }
+
   /* Hero Section */
   .hero {
     margin-top: 0;
-    padding-top: 10px 0;
+    padding-top: 10px;
   }
 
   .hero-content {
@@ -636,20 +648,20 @@ footer {
   }
 
   .skills-container {
-    gap: 15px;
+    gap: 12px;
   }
 
   .skill-badge {
-    font-size: 18px;
-    padding: 8px 20px;
+    font-size: 16px;
+    padding: 6px 15px;
   }
 
   .skill-group {
-    width: 140px;
+    width: 130px;
   }
 
   .skill-description {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   /* Projects Section */
@@ -658,6 +670,7 @@ footer {
     text-align: center;
   }
 
+  /* Footer Section */
   .footer-row {
     flex-direction: column;
     align-items: center;
@@ -679,6 +692,7 @@ footer {
   .footer-left a {
     display: block;
   }
+
   .footer-line {
     margin-top: 10px;
     margin-bottom: 6px;
@@ -689,3 +703,4 @@ footer {
     padding: 2rem 1rem;
   }
 }
+

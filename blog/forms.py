@@ -1,7 +1,6 @@
 from django import forms
-from .models import Contact  # Make sure Contact model exists in models.py
 
-class ContactForm(forms.ModelForm):
-    class Meta:
-        model = Contact
-        fields = ['name', 'email', 'message']
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Your Name'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Your Email'}))
+    message = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Your Message'}))
