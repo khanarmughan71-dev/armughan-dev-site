@@ -61,8 +61,10 @@ header {
 
 .first {
     background: linear-gradient(to right, #00c9ff, #92fe9d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text; /* Standard syntax */
+    -webkit-background-clip: text; /* Chrome, Safari */
+    color: transparent; /* For Firefox */
+    -webkit-text-fill-color: transparent; /* Chrome, Safari */
 }
 
 .second {
@@ -82,25 +84,36 @@ header {
 }
 
 .main-nav li a {
+    position: relative; /* needed for the ::after positioning */
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
+/* Create the underline */
+.main-nav li a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px; /* space between text and underline */
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #00ffcc;
+    transition: width 0.3s ease; /* slow growth */
+}
+
+/* Hover effect */
 .main-nav li a:hover {
-    text-decoration: underline;
     color: #00ffcc;
 }
 
-
-/* SEARCH BAR */
-.search-form input {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
+.main-nav li a:hover::after {
+    width: 100%; /* underline grows */
 }
+
+
 
 html {
   scroll-behavior: smooth;
@@ -130,25 +143,26 @@ html {
 }
 
 .hero-text h1 {
-  font-size: 36px;
+  font-size: 38px;
   color: black;
 }
 
 .hero-text h2 {
-  font-size: 28px;
+  font-size: 34px;
   color: #009fff;
   margin-top: 10px;
 }
 
 .hero-text p {
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 20px;
 }
 
 
 .hero-image img {
-  width: 320px;
-  border-radius: 10px 40px;
+  width: 380px;
+  border-radius: 50%;
+  border: 3px solid #009fff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -163,9 +177,8 @@ html {
 
 .resume-btn {
     display: inline-block;
-    margin-top: 20px;
     padding: 10px 20px;
-    background: linear-gradient(to right, #00c9ff, #92fe9d);
+    background: #009fff;
     color: white;
     font-weight: bold;
     border-radius: 8px;
@@ -175,7 +188,7 @@ html {
 
 .resume-btn:hover {
     transform: scale(1.05);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.35s ease-in-out;
 }
 
 
@@ -214,16 +227,16 @@ html {
   color: white;
   border-top: 0px solid rgba(255, 255, 255, 0.1);
   border-bottom: 0px solid rgba(255, 255, 255, 0.1);
-  min-height: 380px;
-  height: auto;
+  min-height: 400px;
+  height: 400px;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .skills-section h1 {
-  font-size: 2.5rem;
+  font-size: 40px;
   margin-bottom: 80px;
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: 1px;
   color: #009fff;
   font-family: Arial, Helvetica, sans-serif;
@@ -239,7 +252,7 @@ html {
 .skill-badge {
   padding: 12px 30px;
   border-radius: 30px;
-  font-size: 1.1rem;
+  font-size: 22px;
   font-weight: 500;
   color: white;
   background: linear-gradient(to right, #00c9ff, #92fe9d);
@@ -261,8 +274,8 @@ html {
 .skill-group {
   display: inline-flex;
   flex-direction: column;
-  align-items: center;
   width: 180px;
+  margin: 10px;
 }
 
 .skill-description {
@@ -270,7 +283,8 @@ html {
   color: white;
   max-width: 180px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 
@@ -332,7 +346,7 @@ html {
     display: flex;
     flex-direction: column;
     gap: 18px;
-    max-width: 550px;
+    max-width: 600px;
     margin: 0 auto;
     text-align: center;
 }
@@ -342,44 +356,61 @@ html {
   text-align: center;
   color: #009fff;
   margin-bottom: 40px;
-  
 }
 
+/* Input & textarea base style */
 .contact-form input,
 .contact-form textarea {
-    padding: 12px 15px;
-    border: none;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.08); /* Slightly transparent background */
+    padding: 14px 18px;
+    border: 2px solid #00c9ff;
+    border-radius: 25px;
+    background: transparent;
     color: #fff;
     font-size: 16px;
     outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
+/* Focus Effect */
 .contact-form input:focus,
 .contact-form textarea:focus {
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 10px #00c9ff;
+    border-color: #00c9ff;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 201, 255, 0.6);
 }
 
+/* Placeholder Styling */
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
 
+/* Prevent textarea overflow */
+.contact-form textarea {
+    min-height: 120px;
+    max-height: 250px;
+    resize: vertical;
+    overflow-y: auto;
+}
+
+/* Button styling */
 .contact-form button {
-    background: linear-gradient(to right, #00c9ff, #92fe9d);
+    background: #00c9ff;
     border: none;
     padding: 14px;
-    border-radius: 10px;
+    border-radius: 50px;
     font-weight: bold;
+    font-size: 16px;
     color: #000;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
 .contact-form button:hover {
-    transform: scale(1.05);
+    background: #0196be;
     font-weight: bold;
 }
 
@@ -391,7 +422,6 @@ html {
     font-size: 18px;
     margin-bottom: 20px;
 }
-
 
 
 /* FOOTER */
@@ -449,7 +479,7 @@ footer {
 }
 
 .footer-left h3 {
-    color: #000;
+    color: #fff;
     font-weight: bold;
     padding-right: 4px;
 }
@@ -465,13 +495,22 @@ footer {
 .site-footer .social-links a {
     color: #fff;
     margin: 0 8px;
-    font-size: 30px;
+    font-size: 34px;
     transition: color 0.3s ease;
     text-decoration: none;
 }
 
 .site-footer .social-links a:hover {
     color: #00ffcc;
+}
+
+.footer-line {
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: none; /* remove default styling */
+  border-top: 1px solid rgba(255, 255, 255, 0.5); /* thin white line */
 }
 
 .copyright p {
@@ -495,15 +534,35 @@ footer {
     margin-bottom: 30px;
   }
 
-  .skills-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;   /* Increased gap between items */
-    margin-top: 2rem; /* Extra top margin for breathing room */
+  .skills-section h1 {
+    font-size: 2rem;
+    margin-bottom: 60px;
   }
 
-  footer {
+  .skill-badge {
+    font-size: 20px;
+    padding: 10px 25px;
+  }
+
+  .skill-group {
+    width: 160px;
+  }
+
+  .footer-row {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 2rem 1rem;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .footer-left {
+    justify-content: center;
   }
 }
 
@@ -512,7 +571,7 @@ footer {
 
    .main-nav {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -522,7 +581,7 @@ footer {
    nav ul {
     display: flex;
     justify-content: center; /* center the items */
-    gap: 5px;               /* space between items */
+    gap: 4px;               /* space between items */
    }
 
    nav ul li a {
@@ -531,6 +590,11 @@ footer {
 
   
   /* Hero Section */
+  .hero {
+    margin-top: 0;
+    padding-top: 10px 0;
+  }
+
   .hero-content {
     padding: 2rem 1rem;
   }
@@ -548,8 +612,12 @@ footer {
   }
 
   .hero-image img {
-    width: 70%;
+    width: 80%;
     margin-top: 1rem;
+  }
+
+  .resume-btn {
+    margin-top: 40px;
   }
 
   /* About Section */
@@ -558,11 +626,30 @@ footer {
   }
 
   /* Skills Section */
-  .skills-container {
-    flex-direction: column; /* stack vertically */
-    gap: 1.5rem;             /* spacing for mobile */
-    margin-bottom: 2px;
+  .skills-section {
+    padding: 40px 15px;
     height: auto;
+  }
+
+  .skills-section h1 {
+    margin-bottom: 40px;
+  }
+
+  .skills-container {
+    gap: 15px;
+  }
+
+  .skill-badge {
+    font-size: 18px;
+    padding: 8px 20px;
+  }
+
+  .skill-group {
+    width: 140px;
+  }
+
+  .skill-description {
+    font-size: 14px;
   }
 
   /* Projects Section */
@@ -571,11 +658,30 @@ footer {
     text-align: center;
   }
 
-  /* Footer */
-  footer {
-    padding: 1.5rem 1rem;
+  .footer-row {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    font-size: 0.9rem;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    text-align: center;
+    padding: 8px 0;
+  }
+
+  .footer-left {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-left a {
+    display: block;
+  }
+  .footer-line {
+    margin-top: 10px;
+    margin-bottom: 6px;
   }
 
   /* General section spacing */
