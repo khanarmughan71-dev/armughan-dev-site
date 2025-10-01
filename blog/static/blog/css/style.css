@@ -747,7 +747,7 @@ footer {
 
   .skills-section {
     padding: 40px 15px;
-    height: auto;          /* let content expand naturally */
+    height: auto; /* let content expand naturally */
     min-height: auto;
   }
 
@@ -805,9 +805,19 @@ footer {
 
 /* Mobile screens (≤ 768px) */
 @media screen and (max-width: 768px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   header {
     height: auto;
+    width: calc(100% - 20px); /* reduce width to account for left+right margins */
     padding-bottom: 10px;
+    margin: 10px auto 0 auto; /* 10px top, auto left/right centers it */
+    display: block; /* inline-block not needed for header */
+    box-sizing: border-box; /* ensures padding stays inside width */
   }
 
   .header-container {
@@ -859,9 +869,27 @@ footer {
   }
 
   .image-wrapper {
-    width: 220px;
-    height: 220px;
-    margin: 20px 0;
+    width: 280px; /* was 220px */
+    height: 280px;
+    margin: 20px auto; /* center align and reduce margin */
+    border: 2px solid #1f1f1f;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  }
+
+  .image-wrapper img {
+    object-fit: cover;
+  }
+
+  /* Overlay text adjustments */
+  .image-overlay p {
+    font-size: 0.7rem; /* smaller text */
+    line-height: 1.1; /* better readability */
+    text-align: center; /* center text for small screens */
+  }
+
+  .image-overlay p .tagline {
+    font-size: 0.7rem;
+    margin-top: 5px;
   }
 
   .resume-btn {
