@@ -10,6 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -22,9 +23,12 @@
       </h1>
     </div>
 
+    <a href="javascript:void(0);" class="icon" id="hamburger">
+      <i class="fa fa-bars"></i>
+    </a>
 
     <nav>
-  <ul class="main-nav">
+  <ul class="main-nav" id="nav-menu">
     <li><a href="#home">HOME</a></li>
   <li><a href="#about">ABOUT</a></li>
   <li><a href="#skills">SKILLS</a></li>
@@ -274,6 +278,15 @@
     header.classList.remove("scrolled");
     header.classList.add("transparent");
   }
+});
+</script>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
+
+hamburger.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
 });
 </script>
 

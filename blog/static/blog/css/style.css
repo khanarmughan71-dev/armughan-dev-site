@@ -91,6 +91,9 @@ header::before {
 
 .site-header {
   padding: 0 20px;
+  position: sticky; /* keeps header fixed */
+  top: 0;
+  z-index: 1000; /* ensure header is above normal content */
 }
 
 .header-container {
@@ -183,6 +186,11 @@ header::before {
 
 .main-nav li a:hover::after {
   width: 100%; /* underline grows */
+}
+
+/* Hamburger button hidden on desktop */
+.icon {
+  display: none;
 }
 
 html {
@@ -813,22 +821,33 @@ footer {
 
   header {
     height: auto;
-    width: calc(100% - 20px); /* reduce width to account for left+right margins */
+    width: calc(
+      100% - 20px
+    ); /* reduce width to account for left+right margins */
     padding-bottom: 10px;
     margin: 10px auto 0 auto; /* 10px top, auto left/right centers it */
     display: block; /* inline-block not needed for header */
     box-sizing: border-box; /* ensures padding stays inside width */
+    position: sticky; /* keeps header fixed while scrolling */
+    top: 0; /* stick at the top of viewport */
+    z-index: 10000; /* make sure it appears above everything */
   }
 
   .header-container {
     flex-direction: column;
     align-items: center;
     padding: 2px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
   }
 
   .logo-title {
     display: flex;
+    justify-content: flex-start; /* align items to the left */
+    align-items: center; /* vertical alignment */
     margin: 16px;
+    margin-right: 80px;
   }
 
   .logo-title img {
@@ -840,16 +859,65 @@ footer {
     text-align: center;
   }
 
-  .main-nav {
-    width: 100%;
+  .icon {
     display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    background: transparent;
+    color: white;
+    font-size: 28px;
+    padding: 14px 16px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1001;
+    line-height: 1; /* remove extra line spacing */
+    text-decoration: none; /* REMOVE underline */
+  }
+
+  .icon i {
+    display: block; /* make icon block to avoid baseline spacing */
+  }
+
+  /* Make nav menu full width */
+  nav {
+    width: 100vw; /* viewport width */
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100vw; /* force full width */
+    background-color: #333;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .main-nav.show {
+    display: flex;
+  }
+
+  .main-nav li {
+    width: 100vw; /* full width */
+    border-bottom: 1px solid #444;
   }
 
   .main-nav li a {
-    font-size: 13px;
+    display: block;
+    width: 100vw; /* full width link */
+    padding: 16px;
+    font-size: 17px;
+    color: white;
+    text-decoration: none;
+    text-align: left;
+  }
+
+  .main-nav li a::after {
+    border-bottom: none;
   }
 
   .hero {
@@ -974,6 +1042,11 @@ footer {
   section {
     padding: 2rem 1rem;
   }
+}
+
+/* Show menu when active */
+.main-nav.show {
+  display: block;
 }
 
 @media screen and (max-width: 480px) {
