@@ -152,19 +152,45 @@
 
 <section class="projects-section" data-aos="fade-right" data-aos-duration="1200">
   <h2>PROJECTS</h2>
+
   <div class="projects-container">
-    <div class="project-card">
-      <h3>• Portfolio Website</h3>
-      <p>A personal website built using Django and responsive design. Showcases my skills, resume, and contact details.</p>
-    </div>
-    <div class="project-card">
-      <h3>• Zytrona-Traders</h3>
-      <p>An E-commerce website using Django(Python) frameworks and Frontend using HTML,CSS and JS. As my own business website for future</p>
-    </div>
-    <div class="project-card">
-      <h3>• Blog Platform</h3>
-      <p>Fully functional blog system with Django backend and custom admin panel for posting/editing articles.</p>
-    </div>
+
+    <a href="https://maymarmos-website.vercel.app" target="_blank" class="project-card">
+      <div class="project-image">
+        <img src="{% static 'blog/images/maymarmos.png' %}" alt="Portfolio Website">
+        <span class="visit-text">VISIT⇒</span>
+      </div>
+      <h3>Maymarmos Kitchen</h3>
+      <p>
+        It's a food cart website to order delicious meals online,
+        built with React framework for a seamless user experience.
+      </p>
+    </a>
+
+    <a href="https://salesnest-frontend.vercel.app" target="_blank" class="project-card">
+      <div class="project-image">
+        <img src="{% static 'blog/images/salesnest.png' %}" alt="Zytrona Traders">
+        <span class="visit-text">VISIT⇒</span>
+      </div>
+      <h3>SalesNest CRM</h3>
+      <p>
+        It's a CRM for sales teams to manage leads and customers,
+        built with React for an intuitive interface and smooth performance.
+      </p>
+    </a>
+
+    <a target="_blank" class="project-card">
+      <div class="project-image">
+        <img src="{% static 'blog/images/zytrona.png' %}" alt="Blog Platform">
+        <span class="visit-text">VISIT⇒</span>
+      </div>
+      <h3>Zytrona Traders</h3>
+      <p>
+        It's an e-commerce website for Bike Accessories and gadgets,
+        built with Django framework using Html, CSS, and JavaScript for dynamic features.
+      </p>
+    </a>
+
   </div>
 </section>
 
