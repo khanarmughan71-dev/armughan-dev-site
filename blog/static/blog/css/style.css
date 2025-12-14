@@ -847,6 +847,14 @@ footer {
     max-width: 160px;
   }
 
+  .projects-container {
+    gap: 25px;
+  }
+
+  .project-card {
+    width: 45%;
+  }
+
   .footer-row {
     flex-direction: column;
     align-items: center;
@@ -1069,8 +1077,27 @@ footer {
   }
 
   /* Projects Section */
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .project-card {
-    padding: 1rem;
+    width: 90%;
+    max-width: 360px;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .project-card h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .project-card p {
+    font-size: 13px;
     text-align: center;
   }
 
@@ -1130,5 +1157,18 @@ footer {
 
   .main-nav {
     gap: 12px;
+  }
+
+  .projects-section h2 {
+    font-size: 28px;
+  }
+
+  .project-image {
+    height: 160px;
+  }
+
+  .visit-text {
+    font-size: 16px;
+    letter-spacing: 1px;
   }
 }
